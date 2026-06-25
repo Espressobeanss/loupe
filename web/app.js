@@ -1,6 +1,7 @@
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var crumb = $("crumb");
+  var materials = [];
 
   function show(screen, label) {
     var screens = document.querySelectorAll(".screen");
@@ -16,6 +17,7 @@
     if ($("brief").value.trim().length > 14) s += 1;
     if (document.querySelector("#role .chip.sel")) s += 1;
     s += Math.min(document.querySelectorAll("#sources .chip.sel").length, 2);
+    s += Math.min(materials.length, 2);
     var tier = CONF[Math.min(s, CONF.length - 1)];
     $("tier").textContent = tier;
     $("fill").style.width = Math.min(Math.round((s / 4) * 100), 96) + "%";
@@ -32,6 +34,44 @@
     });
   });
   $("brief").addEventListener("input", recalc);
+
+  // material: drop files, browse, paste links — shown as removable tags
+  function renderMaterials() {
+    $("material").innerHTML = materials.map(function (m, i) {
+      return '<span class="mat"><span class="ty">' + m.type + '</span><b>' + esc(m.name) +
+        '</b><span class="x" data-i="' + i + '">&times;</span></span>';
+    }).join("");
+    $("material").querySelectorAll(".x").forEach(function (x) {
+      x.addEventListener("click", function () {
+        materials.splice(+x.getAttribute("data-i"), 1);
+        renderMaterials();
+        recalc();
+      });
+    });
+  }
+  function addFiles(list) {
+    for (var i = 0; i < list.length; i++) materials.push({ type: "file", name: list[i].name });
+    renderMaterials();
+    recalc();
+  }
+  var fileInput = $("file");
+  if (fileInput) fileInput.addEventListener("change", function () { addFiles(fileInput.files); fileInput.value = ""; });
+  var dz = $("dropzone");
+  if (dz) {
+    ["dragover", "dragenter"].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.add("drag"); }); });
+    ["dragleave", "drop"].forEach(function (e) { dz.addEventListener(e, function () { dz.classList.remove("drag"); }); });
+    dz.addEventListener("drop", function (ev) { ev.preventDefault(); if (ev.dataTransfer && ev.dataTransfer.files) addFiles(ev.dataTransfer.files); });
+  }
+  function addLink() {
+    var el = $("link"); var v = el.value.trim();
+    if (!v) return;
+    materials.push({ type: "link", name: v.replace(/^https?:\/\//, "").replace(/\/$/, "") });
+    el.value = "";
+    renderMaterials();
+    recalc();
+  }
+  if ($("addLink")) $("addLink").addEventListener("click", addLink);
+  if ($("link")) $("link").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); addLink(); } });
 
   function selectedRole() {
     var el = document.querySelector("#role .chip.sel");
@@ -129,7 +169,10 @@
         fetchReport(state.role, state.depth).then(renderReport);  // re-runs only translate
       });
     });
-    $("restart").addEventListener("click", function () { show("s-intake", "before I look"); });
+    $("restart").addEventListener("click", function () {
+      if (window.history && history.replaceState) history.replaceState(null, "", location.pathname);
+      show("s-intake", "before I look");
+    });
   }
 
   // depth tabs (render-time filter over the same object)

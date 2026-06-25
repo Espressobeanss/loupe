@@ -21,7 +21,22 @@
 
       <hr />
       <p class="q">Hand me your material. <span class="req">&middot; required</span></p>
-      <p class="aside">Big files sampled, not fully read. Links read by reference.</p>
+      <p class="aside">Drop files or paste a link. Big files are sampled, not fully read; links are read by reference.</p>
+
+      <label class="dropzone" id="dropzone">
+        <span class="dz-ic">&#8682;</span>
+        <span>Drop files here, or <span class="dz-browse">browse</span></span>
+        <input id="file" type="file" multiple hidden />
+      </label>
+
+      <div class="paste-row">
+        <input id="link" type="url" placeholder="https://figma.com/&hellip;  or  notion.so/&hellip;" />
+        <button class="paste-add" id="addLink" type="button">Add</button>
+      </div>
+
+      <div class="material" id="material"></div>
+
+      <p class="aside" style="margin:16px 0 10px">What kind of signal is it?</p>
       <div class="grp" id="sources">
         <span class="chip sel" data-v="tickets">Tickets</span>
         <span class="chip sel" data-v="figma">Figma</span>
