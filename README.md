@@ -65,7 +65,7 @@ Choose how much report you want. Same five-section argument, three resolutions �
 No dependencies — Python standard library only.
 
 ```bash
-git clone git@github.com:Espressobeanss/loupe.git
+git clone git@github.com:YilannDong/loupe.git
 cd loupe
 python3 server.py
 # open http://localhost:4317
@@ -113,4 +113,4 @@ ENGINE.md          # build spec
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Built by [Yilan D](https://github.com/Espressobeanss).
+MIT — see [LICENSE](LICENSE). Built by [Yilan D](https://github.com/YilannDong).
