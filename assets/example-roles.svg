@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 980" width="980" height="980" role="img" aria-label="Same finding, different reader">
+  <rect width="980" height="980" fill="#EEEBE3"/>
+  <g transform="translate(0,200)" font-family="-apple-system, Helvetica, Arial, sans-serif">
+
+    <text x="40" y="40" font-family="Georgia, serif" font-size="26" fill="#1E1C18">Same finding, different reader</text>
+    <text x="40" y="72" font-family="Georgia, serif" font-style="italic" font-size="15" fill="#5F5C54">The diagnosis is computed once &#8212; only the next steps re-aim to the lever you control.</text>
+
+    <!-- shared verdict -->
+    <rect x="40" y="92" width="900" height="58" rx="12" fill="#FBFAF7" stroke="#1E1C18" stroke-opacity="0.16"/>
+    <text x="58" y="118" font-family="Georgia, serif" font-style="italic" font-size="12" fill="#918D83">the verdict &#8212;</text>
+    <text x="58" y="138" font-family="Georgia, serif" font-size="16" fill="#1E1C18">People bail at the admin fee &#8212; it reads as a charge you&#8217;re sneaking in.</text>
+
+    <!-- Product column -->
+    <rect x="40" y="172" width="430" height="356" rx="12" fill="#FBFAF7" stroke="#1E1C18" stroke-opacity="0.16"/>
+    <rect x="60" y="194" width="80" height="26" rx="7" fill="#E1F5EE" stroke="#1D9E75"/>
+    <text x="74" y="211" font-family="Georgia, serif" font-size="14" fill="#04342C">Product</text>
+
+    <rect x="60" y="248" width="68" height="20" rx="6" fill="#E6F1FB" stroke="#85B7EB"/>
+    <text x="70" y="262" font-size="10" fill="#0C447C">this week</text>
+    <text x="60" y="294" font-size="14" fill="#1E1C18">Spec &#8220;fee on the pricing screen,&#8221;</text>
+    <text x="60" y="314" font-size="14" fill="#1E1C18">rank #1. Watch checkout completion.</text>
+
+    <rect x="60" y="334" width="68" height="20" rx="6" fill="#E6F1FB" stroke="#85B7EB"/>
+    <text x="70" y="348" font-size="10" fill="#0C447C">this week</text>
+    <text x="60" y="380" font-size="14" fill="#1E1C18">Rename &#8220;admin fee&#8221; to what it covers.</text>
+
+    <rect x="60" y="400" width="56" height="20" rx="6" fill="#ECE8DF" stroke="#1E1C18" stroke-opacity="0.2"/>
+    <text x="70" y="414" font-size="10" fill="#5F5C54">explore</text>
+    <text x="60" y="446" font-size="14" fill="#5F5C54">Test one all-in price vs. itemized.</text>
+
+    <!-- Ops column -->
+    <rect x="510" y="172" width="430" height="356" rx="12" fill="#FBFAF7" stroke="#1E1C18" stroke-opacity="0.16"/>
+    <rect x="530" y="194" width="86" height="26" rx="7" fill="#E1F5EE" stroke="#1D9E75"/>
+    <text x="544" y="211" font-family="Georgia, serif" font-size="14" fill="#04342C">Ops / CX</text>
+
+    <rect x="530" y="248" width="48" height="20" rx="6" fill="#FAECE7" stroke="#D85A30"/>
+    <text x="540" y="262" font-size="10" fill="#4A1B0C">now</text>
+    <text x="530" y="294" font-size="14" fill="#1E1C18">Add a pre-checkout fee note to the</text>
+    <text x="530" y="314" font-size="14" fill="#1E1C18">support macro.</text>
+
+    <rect x="530" y="334" width="48" height="20" rx="6" fill="#FAECE7" stroke="#D85A30"/>
+    <text x="540" y="348" font-size="10" fill="#4A1B0C">now</text>
+    <text x="530" y="380" font-size="14" fill="#1E1C18">Canned reply for &#8220;why am I charged</text>
+    <text x="530" y="400" font-size="14" fill="#1E1C18">more?&#8221;</text>
+    <text x="530" y="424" font-family="Georgia, serif" font-style="italic" font-size="13" fill="#5F5C54">&#8627; hand to Product: surface the fee</text>
+    <text x="530" y="442" font-family="Georgia, serif" font-style="italic" font-size="13" fill="#5F5C54">on the pricing screen.</text>
+
+    <rect x="530" y="462" width="56" height="20" rx="6" fill="#ECE8DF" stroke="#1E1C18" stroke-opacity="0.2"/>
+    <text x="540" y="476" font-size="10" fill="#5F5C54">explore</text>
+    <text x="530" y="508" font-size="14" fill="#5F5C54">Tag fee tickets, watch volume drop.</text>
+
+    <text x="490" y="566" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="14" fill="#5F5C54">Ops can&#8217;t redesign checkout &#8212; so Loupe gives them what they can ship now, and hands the root fix off.</text>
+  </g>
+</svg>

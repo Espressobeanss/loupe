@@ -13,11 +13,15 @@ Throw in raw user research — tickets, Figma links, call notes — get back one
   <img alt="Dependencies" src="https://img.shields.io/badge/dependencies-none-black" />
 </p>
 
+<p align="center">
+  <img src="assets/example-report.png" alt="An example Loupe report on a checkout drop-off study" width="820" />
+</p>
+
 ---
 
 ## What it does
 
-Most teams have real user signal — a pile of support tickets, a Figma flow, some call notes — but no time to compile it and no senior designer to critique it. Loupe is the tool you throw that mess into. It returns a single report that reads top-to-bottom as one argument:
+Most teams have real user signal — a pile of support tickets, a Figma flow, some call notes — but no time to compile it and no senior designer to critique it. Loupe is the tool you throw that mess into. It returns a single report that reads top-to-bottom as **one argument**:
 
 > **The Verdict** → **Signals** (what we saw) → **The Critique** (why it's broken) → **Next Steps** (what to do)
 
@@ -26,10 +30,18 @@ Every recommendation traces back through the critique, to a signal, to a raw sou
 ## Why it's different
 
 - **It has an opinion.** The Verdict is a single, falsifiable sentence with a confidence signal — not a hedge, not a data dump.
-- **It critiques, not just summarizes.** The differentiator is a critic *speaking* — naming the heuristic you violated, the trust you broke — the design crit you'd otherwise have to convene a room for.
+- **It critiques, not just summarizes.** The differentiator is a critic *speaking* — naming the heuristic you violated, the trust you broke — the design crit you'd otherwise convene a room for.
 - **It adapts to who's reading.** The same diagnosis becomes different actions for a founder, a PM, a designer, an engineer, ops, or growth — with an explicit hand-off when the fix isn't yours to make.
 - **It stays honest.** Confidence is capped by how much context you gave it, and never claims certainty. A good critic finds the flaw — including in its own read.
 - **It's cost-aware by design.** Links are read by reference, big exports are sampled not fully read, vision is opt-in. Nothing is processed until you run it.
+
+## One engine, six readers
+
+The diagnosis is computed **once**. Only the final pass re-aims the actions to the lever you actually control — and hands the root fix off when it isn't yours to make.
+
+<p align="center">
+  <img src="assets/example-roles.png" alt="The same finding producing different next steps for Product vs Ops" width="820" />
+</p>
 
 ## Quickstart
 
@@ -42,7 +54,12 @@ python3 server.py
 # open http://localhost:4317
 ```
 
-Fill the intake, hit **Look closer**, then switch roles and depth on the report — watch the actions re-aim while the diagnosis holds.
+Then, in the app:
+
+1. **Describe what you need to see** — one messy sentence becomes the verdict's target.
+2. **Hand it your material** — tap the sources you have (the intake guesses the rest and lets you correct it).
+3. **Pick your role** — this shapes the next steps.
+4. Hit **Look closer**, then switch **role** and **depth** on the report — watch the actions re-aim while the diagnosis holds.
 
 ## How it works
 
@@ -55,9 +72,9 @@ ingest → cluster → diagnose → conclude → translate
  input              (+severity) (+confidence) (role-shaped)
 ```
 
-The diagnosis is computed **once**; only `translate` is role-conditioned — which is why switching role is cheap. The pipeline, the `Report` data model, and its enforced invariants (no orphan recommendations; no claim exceeds the confidence ceiling) are documented in **[ENGINE.md](ENGINE.md)**. The product contract — the spine, the depth modes, the voice — is in **[PRD.md](PRD.md)**.
+The diagnosis is computed once; only `translate` is role-conditioned — which is why switching role is cheap. The pipeline, the `Report` data model, and its enforced invariants (no orphan recommendations; no claim exceeds the confidence ceiling) are documented in **[ENGINE.md](ENGINE.md)**. The product contract — the spine, the depth modes, the voice — is in **[PRD.md](PRD.md)**.
 
-> **Status:** the engine ships with a worked example (a checkout drop-off study) so it runs with zero secrets. The five Claude passes are stubbed and marked `# TODO` in [`engine/report.py`](engine/report.py) — that's the seam where the model gets wired in.
+> **Status:** the engine ships with a worked example (the checkout drop-off study shown above) so it runs with zero secrets. The five Claude passes are stubbed and marked `# TODO` in [`engine/report.py`](engine/report.py) — that's the seam where the model gets wired in.
 
 ## Roadmap
 
@@ -72,6 +89,7 @@ The diagnosis is computed **once**; only `translate` is role-conditioned — whi
 server.py          # stdlib dev server + /api/report endpoint
 engine/report.py   # the 5-pass pipeline + Report data model (passes stubbed)
 web/               # intake → report UI (no framework, no build step)
+assets/            # logo + example renders
 PRD.md             # product contract
 ENGINE.md          # build spec
 ```
