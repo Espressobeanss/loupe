@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local env / secrets (when the real Claude passes get wired in)
+.env
+.env.local
+
+# Local Claude settings (keep launch.json shared, ignore personal settings)
+.claude/settings.local.json

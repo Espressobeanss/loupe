@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loupe</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="frame">
+    <header class="masthead">
+      <span class="logo">&#9678; Loupe</span>
+      <span class="crumb" id="crumb">before I look</span>
+    </header>
+
+    <!-- INTAKE -->
+    <section class="screen on" id="s-intake">
+      <p class="q">What do you need to see clearly? <span class="req">&middot; required</span></p>
+      <p class="aside">One messy sentence. This becomes the verdict.</p>
+      <textarea id="brief">people keep dropping off in checkout and I don't know why</textarea>
+
+      <hr />
+      <p class="q">Hand me your material. <span class="req">&middot; required</span></p>
+      <p class="aside">Big files sampled, not fully read. Links read by reference.</p>
+      <div class="grp" id="sources">
+        <span class="chip sel" data-v="tickets">Tickets</span>
+        <span class="chip sel" data-v="figma">Figma</span>
+        <span class="chip" data-v="notes">Call notes</span>
+        <span class="chip" data-v="analytics">Analytics</span>
+      </div>
+
+      <hr />
+      <p class="q">You are &mdash;</p>
+      <p class="aside">This decides the shape of your next steps. Same diagnosis, your lever.</p>
+      <div class="grp single" id="role">
+        <span class="chip" data-v="founder">Founder</span>
+        <span class="chip sel" data-v="product">Product</span>
+        <span class="chip" data-v="design">Design</span>
+        <span class="chip" data-v="engineering">Engineering</span>
+        <span class="chip" data-v="ops">Ops / CX</span>
+        <span class="chip" data-v="growth">Growth</span>
+      </div>
+
+      <div class="footer">
+        <div class="ceiling">
+          <div class="ceiling-top"><span>confidence I can earn</span><span id="tier">strong</span></div>
+          <div class="track"><div class="fill" id="fill" style="width:74%"></div></div>
+        </div>
+        <button class="btn" id="go">Look closer &rarr;</button>
+      </div>
+    </section>
+
+    <!-- LOADING -->
+    <section class="screen" id="s-load">
+      <div class="loading">
+        <span class="loupe-mark">&#9678;</span>
+        <p id="load-msg">reading 47 tickets &mdash; a sample, then the counts&hellip;</p>
+      </div>
+    </section>
+
+    <!-- REPORT -->
+    <section class="screen" id="s-report" data-depth="standard">
+      <div class="report-bar">
+        <span class="crumb">the checkout read &middot; no. 1</span>
+        <div class="tabs" id="depth">
+          <span class="tab" data-d="quick">Quick</span>
+          <span class="tab on" data-d="standard">Standard</span>
+          <span class="tab" data-d="deep">Deep + visual</span>
+        </div>
+      </div>
+      <div class="report-body" id="report-body"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
