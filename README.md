@@ -1,6 +1,6 @@
-<h1 align="center">◎ Loupe</h1>
-
-<p align="center"><em>Messy in, sharp out.</em></p>
+<p align="center">
+  <img src="assets/loupe-logo.svg" alt="Loupe — messy in, sharp out" width="300" />
+</p>
 
 <p align="center">
 The design critic startups don't have time to convene.<br>
