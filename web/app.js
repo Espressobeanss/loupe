@@ -170,5 +170,18 @@
   function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
   function hzLabel(h) { return h === "week" ? "this week" : h; }
 
+  // deep-link / demo mode: /?depth=deep&role=ops skips the intake and renders directly
+  var params = new URLSearchParams(location.search);
+  if (params.get("depth") || params.get("role")) {
+    state.depth = params.get("depth") || state.depth;
+    state.role = params.get("role") || state.role;
+    document.querySelectorAll("#depth .tab").forEach(function (x) {
+      x.classList.toggle("on", x.getAttribute("data-d") === state.depth);
+    });
+    $("s-report").setAttribute("data-depth", state.depth);
+    show("s-report", "the checkout read");
+    fetchReport(state.role, state.depth).then(renderReport);
+  }
+
   recalc();
 })();

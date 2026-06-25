@@ -43,6 +43,23 @@ The diagnosis is computed **once**. Only the final pass re-aims the actions to t
   <img src="assets/example-roles.png" alt="The same finding producing different next steps for Product vs Ops" width="820" />
 </p>
 
+## Three depths, one spine
+
+Choose how much report you want. Same five-section argument, three resolutions — depth adds detail, never reorders the argument. *(Live screenshots of the running app.)*
+
+<table>
+<tr>
+<td width="33%" valign="top"><img src="assets/depth-quick.png" alt="Quick depth view" /></td>
+<td width="33%" valign="top"><img src="assets/depth-standard.png" alt="Standard depth view" /></td>
+<td width="33%" valign="top"><img src="assets/depth-deep.png" alt="Deep and visual depth view" /></td>
+</tr>
+<tr>
+<td valign="top"><b>Quick</b><br>Verdict + next steps. The Slack-paste before standup.</td>
+<td valign="top"><b>Standard</b><br>Adds inputs, signal bars, and the critique.</td>
+<td valign="top"><b>Deep + visual</b><br>Adds per-signal quotes &amp; sources, who-it-hits, and the confidence ceiling.</td>
+</tr>
+</table>
+
 ## Quickstart
 
 No dependencies — Python standard library only.
