@@ -160,3 +160,9 @@ textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px
 .ref { font-size: 11px; font-style: italic; color: var(--ink-3); white-space: nowrap; align-self: flex-start; margin-top: 3px; }
 .signoff { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--ink-3); text-align: right; margin: 28px 0 0; }
 .restart { margin-top: 28px; padding-top: 18px; border-top: 0.5px solid var(--line); }
+
+/* deep + visual extras */
+.ceiling-note { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--ink-3); margin: 8px 0 0; }
+.sig-detail { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--ink-2); margin: 0 0 12px 172px; }
+.src { display: inline-block; font-family: var(--sans); font-style: normal; font-size: 11px; color: var(--ink-2); background: #ECE8DF; border-radius: 6px; padding: 1px 7px; margin-left: 6px; }
+.crit-detail { font-size: 13px; color: var(--ink-2); margin-top: 8px; }

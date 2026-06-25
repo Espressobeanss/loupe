@@ -60,6 +60,11 @@
       '<p class="claim">' + esc(data.verdict.claim) + "</p></div>" +
       '<span class="stamp">' + esc(data.verdict.confidence) + " confidence</span></div>";
 
+    if (deepOpen) {
+      var assume = (data.meta.assumptions && data.meta.assumptions.length) ? data.meta.assumptions.join(", ") : "none";
+      html += '<p class="ceiling-note">confidence ceiling: ' + esc(data.meta.ceiling) + " &middot; assumptions: " + esc(assume) + "</p>";
+    }
+
     if (stdOpen) {
       html += '<p class="filed">Filed from ' +
         data.inputs.map(function (x) { return x.count + " " + esc(x.source); }).join(", ") +
@@ -67,17 +72,24 @@
 
       html += '<p class="sec">What we saw</p>';
       data.signals.forEach(function (sg, i) {
-        var w = deepOpen ? sg.weight + "%" : (sg.weight > 0 ? sg.weight + "%" : "0%");
         html += '<div class="sig"><span class="label">' + esc(sg.theme) + "</span>" +
-          '<div class="bar"><i style="width:' + w + ";background:" + BARCOLOR[i % 3] + '"></i></div>' +
+          '<div class="bar"><i style="width:' + sg.weight + "%;background:" + BARCOLOR[i % 3] + '"></i></div>' +
           '<span class="n">' + sg.count + "</span></div>";
+        if (deepOpen) {
+          var tags = (sg.sourceRefs || []).map(function (r) { return '<span class="src">' + esc(r) + "</span>"; }).join("");
+          html += '<div class="sig-detail">&ldquo;' + esc(sg.quote) + "&rdquo;" + tags + "</div>";
+        }
       });
 
       html += '<p class="sec">From the panel</p>';
       var c = data.critiques[0];
       html += '<div class="crit"><p class="voice">&ldquo;' + esc(c.voice) + "&rdquo;</p>" +
         '<div class="meta"><span class="by">&mdash; the crit, on ' + esc(c.principle) + "</span>" +
-        '<span class="sev">severity: ' + esc(c.severity) + "</span></div></div>";
+        '<span class="sev">severity: ' + esc(c.severity) + "</span></div>";
+      if (deepOpen) {
+        html += '<div class="crit-detail">Who it hits: ' + esc(c.who) + " &middot; confidence: " + esc(c.confidence) + "</div>";
+      }
+      html += "</div>";
     }
 
     // role-switchable next steps
